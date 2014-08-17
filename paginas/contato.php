@@ -1,4 +1,4 @@
-<?php if(!$_POST['submit']): ?>
+<?php if(!isset($_POST['submit'])): ?>
 
 <div class="container">
     <div class="row">

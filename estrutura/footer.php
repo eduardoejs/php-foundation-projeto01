@@ -37,7 +37,7 @@
     <div class="row-fluid">
         <div class="span12 footer">
             <hr/>
-            <p class="text-center">Todos os direitos reservados - <?php echo date(Y); ?> </p>
+            <p class="text-center">Todos os direitos reservados - <?php date_default_timezone_set('America/Sao_Paulo'); echo date("Y"); ?> </p>
         </div>
     </div>
 </div>

@@ -2,6 +2,26 @@
     /* Ativa as diretivas para exibição de avisos e erros que o sistema está tendo */
     /*ini_set('display_errors', true);
     error_reporting(E_ALL | E_STRICT);*/
+
+    /* Redirecionamento: rotas para o arquivo index.php */
+    $url = parse_url("http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]);
+    $path = explode('/',$url['path'],2);
+
+    $rotas_sistema = ["home", "empresa", "produtos", "servicos", "contato"];
+
+    function validar_rotas($rota) {
+
+        $rotas_sistema = ["home", "empresa", "produtos", "servicos", "contato"];
+
+        if (in_array($rota[1], $rotas_sistema)):
+            return require_once('paginas/'.$rota[1].".php");
+        elseif ($rota[1] == ""):
+            return require_once('paginas/home.php');
+        else:
+            http_response_code(404);
+            return require_once('paginas/404.php');
+        endif;
+    }
 ?>
 <?php require_once("estrutura/header.php"); ?>
 
@@ -15,18 +35,7 @@
         </div>
     </div>
 
-    <?php
-        if(!isset($_GET['page'])){
-            require_once("paginas/home.php");
-        }else{
-            if (file_exists("paginas/".$_GET['page'].".php")){
-                require_once("paginas/".$_GET['page'].".php");
-            }else{
-                require_once("paginas/404.php");
-            }
-
-        }
-    ?>
+    <?php validar_rotas($path); ?>
 
 </div>
 

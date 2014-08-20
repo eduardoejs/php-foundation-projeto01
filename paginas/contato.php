@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="row">
-        <form class="form-horizontal" action="../index.php?page=contato" method="post">
+        <form class="form-horizontal" action="contato" method="post">
             <fieldset>
                 <legend>Entre em contato com a XPTO</legend>
                 <div class="control-group">
@@ -49,7 +49,7 @@
             <strong>Email:</strong><p class="text-info"><?php echo $_POST['email']; ?> </p>
             <strong>Assunto:</strong><p class="text-info"><?php echo $_POST['assunto']; ?> </p>
             <strong>Mensagem:</strong><em><p class="text-info"><?php echo $_POST['mensagem']; ?> </p></em>
-            <p><a class="btn btn-success" href="../index.php?page=contato" title="">Voltar ao formulário »</a></p>
+            <p><a class="btn btn-success" href="contato" title="">Voltar ao formulário »</a></p>
         </div>
     </div>
 <?php endif; ?>
